@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flying Hearts with Hover Animation</title>
+    <style>
+        /* Fullscreen Background */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Floating Hearts Container */
+        .hearts-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            pointer-events: none; /* Prevent interaction issues */
+        }
+
+        /* Heart Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(var(--size));
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(var(--size));
+                opacity: 0;
+            }
+        }
+
+        /* Heart Base */
+        .heart {
+            position: absolute;
+            animation: float linear infinite;
+        }
+
+        /* Assign random sizes using CSS variables */
+        .heart:nth-child(1) { --size: 1.5; left: 10%; animation-duration: 3s; font-size: 20px; }
+        .heart:nth-child(2) { --size: 1.7; left: 20%; animation-duration: 4s; font-size: 30px; }
+        .heart:nth-child(3) { --size: 2; left: 30%; animation-duration: 5s; font-size: 40px; }
+        .heart:nth-child(4) { --size: 2.3; left: 40%; animation-duration: 6s; font-size: 50px; }
+        .heart:nth-child(5) { --size: 1.6; left: 50%; animation-duration: 3.5s; font-size: 25px; }
+        .heart:nth-child(6) { --size: 2; left: 60%; animation-duration: 4.5s; font-size: 40px; }
+        .heart:nth-child(7) { --size: 2.2; left: 70%; animation-duration: 5.5s; font-size: 45px; }
+        .heart:nth-child(8) { --size: 2.8; left: 80%; animation-duration: 4.2s; font-size: 35px; }
+        .heart:nth-child(9) { --size: 2.5; left: 90%; animation-duration: 5.8s; font-size: 55px; }
+
+        /* Image Container */
+        .image-container {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Image Styling */
+        .image-container img {
+            width: 400px;  
+            height: auto;
+            transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 20px;  
+        }
+
+        /* Hover Effect - Now Working! */
+        .image-container img:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="Valentine's Day Card.png" alt="Centered Image">
+    </div>
+
+    <div class="hearts-container">
+        <div class="heart">❤️</div>
+        <div class="heart">💖</div>
+        <div class="heart">💘</div>
+        <div class="heart">💝</div>
+        <div class="heart">💕</div>
+        <div class="heart">💞</div>
+        <div class="heart">💗</div>
+        <div class="heart">💓</div>
+        <div class="heart">❣️</div>
+    </div>
+
+</body>
+</html>
